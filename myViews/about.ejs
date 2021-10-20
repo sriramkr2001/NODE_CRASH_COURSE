@@ -16,13 +16,13 @@
     <%blogs.forEach(blog=>{ %>
 
 <div style = "border:1px solid black;margin-bottom: 20px;height:fit-content;width: fit-content;">
- <h3><%=blog.title %></h3>
-<h1><%=  blog.snippet   %></h1>
+<a href="<%=urli%>/blogsy/<%=blog._id %>"> <h3><%=blog.title %></h3>
+<h1><%=  blog.snippet   %></h1></a>
+<a href="#" data-id=<%=blog._id%>><button>Delete</button></a>
 <p><%=blog.body %></p>
   
 </div>
 <% })%> 
-
 
 <%}else{%>}
 <p>There aren't any blogs to display</p>
@@ -31,4 +31,7 @@
 
 
 </body>
+<script>
+    console.log(window.location.href)
+</script>
 </html>

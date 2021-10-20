@@ -48,6 +48,8 @@ app.get('/add-blog',(req,res)=>{
 })
 
 
+app.get('')
+
 
 app.get('/all-blog',(req,res)=>{
 
@@ -114,7 +116,7 @@ app.get('/about',(req,res)=>{
     // res.send('<p>Hello Fellas</p>')
     // res.sendFile('./4(h)FOLDER/about.html',{root:__dirname});
 Blog.find()
-.then(resu=>   res.render('about',{blogs:resu}))
+.then(resu=>   res.render('about',{blogs:resu,urli:req.url}))
 .catch(err=>res.send('shshs'))
 })
 
@@ -123,6 +125,14 @@ res.render('blogs')
 
 
 })
+
+
+app.get('/about/blogsy/:id',(req,res)=>{
+let x = req.params.id;
+Blog.findById(x)
+.then(resu=>res.render('blog_deets',{blog:resu}))
+.catch(err=>res.send('Sdjlj'))
+});
 
 
 app.use((req,res)=>{
